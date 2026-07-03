@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 //@RequiredArgsConstructor
+@RequestMapping("/api")
 public class homeController {
 
 
@@ -23,6 +24,11 @@ public class homeController {
         this.user_service = user_service;
         this.expense_service = expense_service;
     }
+
+//    @GetMapping("/form")
+//    public String openForm(){
+//        return "form";
+//    }
 
     @PostMapping("/register")
     public ResponseEntity<String> resisterUser(@RequestBody userRequestDTO req){

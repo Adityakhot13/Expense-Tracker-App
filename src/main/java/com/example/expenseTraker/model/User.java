@@ -2,6 +2,7 @@ package com.example.expenseTraker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.context.annotation.Scope;
 
 import java.util.ArrayList;
 import java.util.List;

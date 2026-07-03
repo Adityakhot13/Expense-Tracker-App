@@ -2,21 +2,14 @@ package com.example.expenseTraker.servises;
 
 
 import com.example.expenseTraker.DTOs.*;
-import com.example.expenseTraker.model.Category;
-import com.example.expenseTraker.model.Expense;
 import com.example.expenseTraker.model.User;
 import com.example.expenseTraker.repository.ExpenseRepository;
 import com.example.expenseTraker.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.List;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class userServise {
@@ -30,6 +23,7 @@ public class userServise {
     }
 
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public ResponseEntity<String> resisterUser(userRequestDTO req){
 
            if(repo.existsByEmail(req.getEmail())){

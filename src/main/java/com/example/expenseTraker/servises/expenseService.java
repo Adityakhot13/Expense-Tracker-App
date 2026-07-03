@@ -9,11 +9,11 @@ import com.example.expenseTraker.model.Expense;
 import com.example.expenseTraker.model.User;
 import com.example.expenseTraker.repository.ExpenseRepository;
 import com.example.expenseTraker.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class expenseService {
         return ResponseEntity.status(HttpStatus.OK).body("Expense saved successfully!");
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public ResponseEntity<?> getExpensesByUser(String userName){
 
         User user = repo.findByUsername(userName);
@@ -50,7 +50,7 @@ public class expenseService {
         return ResponseEntity.ok(expenses);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public ResponseEntity<?> getTop3ExpensesByUser(String userName){
 
         User user = repo.findByUsername(userName);
@@ -87,4 +87,6 @@ public class expenseService {
         m.NoOfTransactions =expenseRepo.countExpense(user.getUserId(),Month);
         return m;
     }
+
+
 }
