@@ -125,4 +125,4 @@ This project is open source. Feel free to fork and adapt it.
 ## 👤 Author
 
 **Aditya Khot**
-[GitHub](https://github.com/Adityakhot13) · [LinkedIn](https://linkedin.com/in/your-linkedin) · adityakhot1312@gmail.com
+[GitHub](https://github.com/Adityakhot13) · [LinkedIn](https://linkedin.com/in/adityakhot13) · adityakhot1312@gmail.com
